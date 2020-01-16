@@ -4,7 +4,9 @@ import { Form } from "./components/Forms";
 import { CardBlock } from "./components/CardBlock";
 export default function App() {
   return (
-    <div>
+    <div
+      style={{ display: "flex", justifyContent: "center", marginTop: "10em" }}
+    >
       <CardBlock />
       <Form />
     </div>
