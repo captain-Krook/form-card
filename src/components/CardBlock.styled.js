@@ -29,7 +29,7 @@ export const ContentNumber = styled.div``
 export const CardNumber = styled.div`
   height: 2.3em;
   width: 19.1em;
-  /* border: 1px solid white; */
+  border: 1px solid white;
   p {
     font-size: 1.3em;
     font-family: monospace;
@@ -37,16 +37,29 @@ export const CardNumber = styled.div`
 `
 
 export const ContentName = styled.div`
+  display: flex;
+  justify-content: space-around;
   width: 100%;
 `
 
 export const CardName = styled.div`
   height: 2.3em;
   width: 15.1em;
-  /* border: 1px solid white; */
+  border: 1px solid white;
   p {
     font-size: 1.4em;
     font-family: monospace;
     text-align: left;
+  }
+`
+
+export const CardDate = styled.div`
+  border: 1px solid white;
+  width: 5.1em;
+  p {
+    color: white;
+    font-size: 1em;
+    margin: 0.3em;
+    text-align: center;
   }
 `

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
-import { ContainerCard, CardNumber, CardName, ContentNumber, ContentName } from "./CardBlock.styled"
+import { ContainerCard, CardNumber, CardName, ContentNumber, ContentName, CardDate } from "./CardBlock.styled"
 import { formatCardNumber } from "./helper/helper"
 import cosmos from "../img/cosmos.jpg"
+import _ from "lodash"
 
 export const CardBlock = () => {
   const [data, setData] = useState([])
@@ -12,25 +13,30 @@ export const CardBlock = () => {
     })
   })
 
-  const numberCard = () => data.map(element => element.numberCards).toString()
-  const nameCard = () => data.map(element => element.nameCards)
+  const numberCard = data.map(element => element.numberCards).toString()
+  const nameCard = data.map(element => element.nameCards)
+  const dates = data.find(element => element.date)
+  const month = _.get(dates, "date.month")
+  const year = _.get(dates, "date.year")
 
-  const infosCustomer = nameCard()
-
-  const formatedCard = formatCardNumber(numberCard())
-
+  console.log(month, year)
   return (
     <ContainerCard background={cosmos}>
       <ContentNumber>
         <CardNumber>
-          <p>{formatedCard}</p>
+          <p>{formatCardNumber(numberCard)}</p>
         </CardNumber>
       </ContentNumber>
+      <span>Card Holder</span>
       <ContentName>
-        <span>Card Holder</span>
         <CardName>
-          <p>{infosCustomer}</p>
+          <p>{nameCard}</p>
         </CardName>
+        <CardDate>
+          <p>
+            {month} / {year}
+          </p>
+        </CardDate>
       </ContentName>
     </ContainerCard>
   )
