@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const ContainerForm = styled.div`
   position: relative;
-  height: 32em;
+  height: 40em;
   display: flex;
   flex-direction: column;
   align-items: baseline;

@@ -15,24 +15,32 @@ export const CardBlock = () => {
 
   const numberCard = data.map(element => element.numberCards).toString()
   const nameCard = data.map(element => element.nameCards)
-  const dates = data.find(element => element.date)
-  const month = _.get(dates, "date.month")
-  const year = _.get(dates, "date.year")
+  const getMonth = data.find(element => element.months)
+  const getyear = data.find(element => element.years)
+  const month = _.get(getMonth, "months")
+  const year = _.get(getyear, "years")
 
-  console.log(month, year)
   return (
     <ContainerCard background={cosmos}>
+      <div>
+        <img src="https://img.icons8.com/plasticine/100/000000/sim-card-chip.png" />
+      </div>
+      <div>
+        <img src="https://img.icons8.com/officel/16/000000/mastercard-logo.png" />
+      </div>
       <ContentNumber>
         <CardNumber>
           <p>{formatCardNumber(numberCard)}</p>
         </CardNumber>
       </ContentNumber>
-      <span>Card Holder</span>
+
       <ContentName>
         <CardName>
+          <span>Card Holder</span>
           <p>{nameCard}</p>
         </CardName>
         <CardDate>
+          <span>Expire</span>
           <p>
             {month} / {year}
           </p>

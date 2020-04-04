@@ -29,7 +29,7 @@ export const ContentNumber = styled.div``
 export const CardNumber = styled.div`
   height: 2.3em;
   width: 19.1em;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   p {
     font-size: 1.3em;
     font-family: monospace;
@@ -45,7 +45,7 @@ export const ContentName = styled.div`
 export const CardName = styled.div`
   height: 2.3em;
   width: 15.1em;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   p {
     font-size: 1.4em;
     font-family: monospace;
@@ -54,12 +54,14 @@ export const CardName = styled.div`
 `
 
 export const CardDate = styled.div`
-  border: 1px solid white;
-  width: 5.1em;
+  /* border: 1px solid white; */
+  width: 8.6em;
+  text-align: center;
   p {
     color: white;
-    font-size: 1em;
+    font-size: 1.4em;
     margin: 0.3em;
     text-align: center;
+    font-family: monospace;
   }
 `
