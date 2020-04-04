@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react"
-import { ContainerCard, CardNumber, CardName, ContentNumber, ContentName, CardDate } from "./CardBlock.styled"
+import {
+  ContainerCard,
+  CardNumber,
+  CardName,
+  ContentNumber,
+  ContentName,
+  CardDate,
+  BlockSimCard
+} from "./CardBlock.styled"
 import { formatCardNumber } from "./helper/helper"
 import cosmos from "../img/cosmos.jpg"
 import _ from "lodash"
@@ -22,12 +30,14 @@ export const CardBlock = () => {
 
   return (
     <ContainerCard background={cosmos}>
-      <div>
-        <img src="https://img.icons8.com/plasticine/100/000000/sim-card-chip.png" />
-      </div>
-      <div>
-        <img src="https://img.icons8.com/officel/16/000000/mastercard-logo.png" />
-      </div>
+      <BlockSimCard>
+        <div>
+          <img src="https://img.icons8.com/plasticine/100/000000/sim-card-chip.png" />
+        </div>
+        <div>
+          <img src="https://img.icons8.com/officel/16/000000/mastercard-logo.png" />
+        </div>
+      </BlockSimCard>
       <ContentNumber>
         <CardNumber>
           <p>{formatCardNumber(numberCard)}</p>

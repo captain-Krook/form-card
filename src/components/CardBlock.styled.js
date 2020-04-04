@@ -65,3 +65,10 @@ export const CardDate = styled.div`
     font-family: monospace;
   }
 `
+
+export const BlockSimCard = styled.div`
+  justify-content: space-between;
+  display: flex;
+  border: 1px solid;
+  width: 100%;
+`
