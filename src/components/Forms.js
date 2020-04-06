@@ -11,10 +11,10 @@ export const Form = () => {
   const [month, setMonth] = useState("")
   const [year, setYear] = useState("")
 
-  const infosCard = [{ numberCards: numberCard }, { nameCards: nameCard }, { months: month }, { years: year }]
+  const infosCards = { numberCards: numberCard, nameCards: nameCard, months: month, years: year }
 
   const event = new CustomEvent("valueInput", {
-    detail: infosCard
+    detail: infosCards
   })
   document.dispatchEvent(event)
 

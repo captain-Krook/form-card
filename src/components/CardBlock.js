@@ -10,12 +10,12 @@ import {
   CardFront,
   CardBack
 } from "./CardBlock.styled"
-import { formatCardNumber } from "./helper/helper"
+
 import cosmos from "../img/cosmos.jpg"
 import _ from "lodash"
 
 export const CardBlock = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState({})
 
   useEffect(() => {
     document.addEventListener("valueInput", function(e) {
@@ -23,12 +23,10 @@ export const CardBlock = () => {
     })
   })
 
-  const numberCard = data.map(element => element.numberCards).toString()
-  const nameCard = data.map(element => element.nameCards)
-  const getMonth = data.find(element => element.months)
-  const getyear = data.find(element => element.years)
-  const month = _.get(getMonth, "months")
-  const year = _.get(getyear, "years")
+  const numberCards = _.get(data, "numberCards")
+  const nameCards = _.get(data, "nameCards")
+  const month = _.get(data, "months")
+  const year = _.get(data, "years")
 
   return (
     <ContainerCard background={cosmos}>
@@ -43,14 +41,14 @@ export const CardBlock = () => {
         </BlockSimCard>
         <ContentNumber>
           <CardNumber>
-            <p>{formatCardNumber(numberCard)}</p>
+            <p>{numberCards}</p>
           </CardNumber>
         </ContentNumber>
 
         <ContentName>
           <CardName>
             <span>Card Holder</span>
-            <p>{nameCard}</p>
+            <p>{nameCards}</p>
           </CardName>
           <CardDate>
             <span>Expire</span>
