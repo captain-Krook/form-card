@@ -8,8 +8,8 @@ import { months, years } from "../data/dates"
 export const Form = () => {
   const [numberCard, setNumberCard] = useState("")
   const [nameCard, setNameCard] = useState("")
-  const [month, setMonth] = useState(0)
-  const [year, setYear] = useState(0)
+  const [month, setMonth] = useState("")
+  const [year, setYear] = useState("")
 
   const infosCard = [{ numberCards: numberCard }, { nameCards: nameCard }, { months: month }, { years: year }]
 
@@ -25,15 +25,16 @@ export const Form = () => {
         <Input
           value={formatCardNumber(numberCard)}
           type="text"
+          required
           maxLength={25}
           autocomplete="cc-number"
           onChange={e => setNumberCard(e.target.value)}
         />
         <span>Card Name</span>
-        <Input value={nameCard} type="text" onChange={e => setNameCard(e.target.value)} maxLength={20} />
+        <Input value={nameCard} type="text" onChange={e => setNameCard(e.target.value)} maxLength={20} required />
         <span>Expiration Date</span>
-        <InputSelect onChange={e => setMonth(e.target.value)} name={"Month"} date={months} />
-        <InputSelect onChange={e => setYear(e.target.value)} name={"Year"} date={years} />
+        <InputSelect onChange={e => setMonth(e.target.value)} name={"Month"} date={months} required />
+        <InputSelect onChange={e => setYear(e.target.value)} name={"Year"} date={years} required />
       </ContainerForm>
     </form>
   )

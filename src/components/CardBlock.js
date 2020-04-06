@@ -6,7 +6,9 @@ import {
   ContentNumber,
   ContentName,
   CardDate,
-  BlockSimCard
+  BlockSimCard,
+  CardFront,
+  CardBack
 } from "./CardBlock.styled"
 import { formatCardNumber } from "./helper/helper"
 import cosmos from "../img/cosmos.jpg"
@@ -30,32 +32,35 @@ export const CardBlock = () => {
 
   return (
     <ContainerCard background={cosmos}>
-      <BlockSimCard>
-        <div>
-          <img src="https://img.icons8.com/plasticine/100/000000/sim-card-chip.png" />
-        </div>
-        <div>
-          <img src="https://img.icons8.com/officel/16/000000/mastercard-logo.png" />
-        </div>
-      </BlockSimCard>
-      <ContentNumber>
-        <CardNumber>
-          <p>{formatCardNumber(numberCard)}</p>
-        </CardNumber>
-      </ContentNumber>
+      <CardFront>
+        <BlockSimCard>
+          <div>
+            <img className="sim" src="https://img.icons8.com/plasticine/100/000000/sim-card-chip.png" alt="icon-sim" />
+          </div>
+          <div>
+            <img className="logo" src="https://img.icons8.com/officel/16/000000/mastercard-logo.png" alt="logo" />
+          </div>
+        </BlockSimCard>
+        <ContentNumber>
+          <CardNumber>
+            <p>{formatCardNumber(numberCard)}</p>
+          </CardNumber>
+        </ContentNumber>
 
-      <ContentName>
-        <CardName>
-          <span>Card Holder</span>
-          <p>{nameCard}</p>
-        </CardName>
-        <CardDate>
-          <span>Expire</span>
-          <p>
-            {month} / {year}
-          </p>
-        </CardDate>
-      </ContentName>
+        <ContentName>
+          <CardName>
+            <span>Card Holder</span>
+            <p>{nameCard}</p>
+          </CardName>
+          <CardDate>
+            <span>Expire</span>
+            <p>
+              {month} / {year}
+            </p>
+          </CardDate>
+        </ContentName>
+      </CardFront>
+      <CardBack>toto</CardBack>
     </ContainerCard>
   )
 }

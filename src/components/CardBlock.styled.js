@@ -4,6 +4,10 @@ export const ContainerCard = styled.div`
   position: absolute;
   display: flex;
   height: 15em;
+  perspective: 600px;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
   width: 26.2em;
   /* border: 1px solid black; */
   background-position: center;
@@ -22,6 +26,12 @@ export const ContainerCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+`
+export const CardBack = styled.div`
+  background-color: red;
+`
+export const CardFront = styled.div`
+  backface-visibility: hidden;
 `
 
 export const ContentNumber = styled.div``
@@ -69,6 +79,13 @@ export const CardDate = styled.div`
 export const BlockSimCard = styled.div`
   justify-content: space-between;
   display: flex;
-  border: 1px solid;
   width: 100%;
+
+  .sim {
+    width: 3.5em;
+  }
+  .logo {
+    width: 1.5em;
+    margin-right: 1em;
+  }
 `
