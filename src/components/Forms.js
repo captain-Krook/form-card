@@ -4,19 +4,31 @@ import { Input } from "./Input"
 import { formatCardNumber } from "./helper/helper"
 import { InputSelect } from "./InputSelect"
 import { months, years } from "../data/dates"
+import { InputBack } from "./InputBack"
 
 export const Form = () => {
   const [numberCard, setNumberCard] = useState("")
   const [nameCard, setNameCard] = useState("")
   const [month, setMonth] = useState("")
   const [year, setYear] = useState("")
+  const [cvw, setCvw] = useState("")
+  const [IsreturnCard, setIsreturnCard] = useState(false)
 
-  const infosCards = { numberCards: numberCard, nameCards: nameCard, months: month, years: year }
+  const infosCards = {
+    numberCards: numberCard,
+    nameCards: nameCard,
+    months: month,
+    years: year,
+    cvws: cvw,
+    returnCard: IsreturnCard
+  }
 
   const event = new CustomEvent("valueInput", {
     detail: infosCards
   })
   document.dispatchEvent(event)
+
+  const isOnFocus = () => setIsreturnCard(true)
 
   return (
     <form>
@@ -35,6 +47,7 @@ export const Form = () => {
         <span>Expiration Date</span>
         <InputSelect onChange={e => setMonth(e.target.value)} name={"Month"} date={months} required />
         <InputSelect onChange={e => setYear(e.target.value)} name={"Year"} date={years} required />
+        <InputBack onChange={e => setCvw(e.target.value)} onFocus={isOnFocus} />
       </ContainerForm>
     </form>
   )

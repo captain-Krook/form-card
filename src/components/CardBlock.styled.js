@@ -26,9 +26,13 @@ export const ContainerCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  transform: ${({ isReturnCard }) => (isReturnCard === true ? `rotateY(180deg) ` : `rotateY(0deg) `)};
+  transition: all 0.5s ease;
 `
+
 export const CardBack = styled.div`
   background-color: red;
+  backface-visibility: visible;
 `
 export const CardFront = styled.div`
   backface-visibility: hidden;

@@ -8,7 +8,7 @@ import {
   CardDate,
   BlockSimCard,
   CardFront,
-  CardBack
+  CardBack,
 } from "./CardBlock.styled"
 
 import cosmos from "../img/cosmos.jpg"
@@ -18,7 +18,7 @@ export const CardBlock = () => {
   const [data, setData] = useState({})
 
   useEffect(() => {
-    document.addEventListener("valueInput", function(e) {
+    document.addEventListener("valueInput", function (e) {
       return setData(e.detail)
     })
   })
@@ -27,14 +27,14 @@ export const CardBlock = () => {
   const nameCards = _.get(data, "nameCards")
   const month = _.get(data, "months")
   const year = _.get(data, "years")
+  const isReturnCard = _.get(data, "returnCard")
 
   return (
-    <ContainerCard background={cosmos}>
+    <ContainerCard background={cosmos} isReturnCard={isReturnCard}>
       <CardFront>
         <BlockSimCard>
-          <div>
-            <img className="sim" src="https://img.icons8.com/plasticine/100/000000/sim-card-chip.png" alt="icon-sim" />
-          </div>
+          <img className="sim" src="https://img.icons8.com/plasticine/100/000000/sim-card-chip.png" alt="icon-sim" />
+
           <div>
             <img className="logo" src="https://img.icons8.com/officel/16/000000/mastercard-logo.png" alt="logo" />
           </div>
@@ -58,7 +58,7 @@ export const CardBlock = () => {
           </CardDate>
         </ContentName>
       </CardFront>
-      <CardBack>toto</CardBack>
+      {isReturnCard ? <CardBack>toto</CardBack> : null}
     </ContainerCard>
   )
 }
